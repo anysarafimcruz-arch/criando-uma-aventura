@@ -6,4 +6,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 700px;
+    margin: 0;
+}
+
+button {
+    background-color: rgb(245, 85, 112);
 }
