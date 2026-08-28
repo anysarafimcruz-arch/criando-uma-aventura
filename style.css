@@ -11,4 +11,6 @@ body {
 
 button {
     background-color: rgb(212, 99, 128);
+    color: white;
+    font-family: "Instrument Serif", serif;
 }
