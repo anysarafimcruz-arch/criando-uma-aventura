@@ -14,3 +14,7 @@ button {
     color: white;
     font-family: "Instrument Serif", serif;
 }
+
+.passo {
+    display: none;
+}
