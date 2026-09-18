@@ -1,73 +1,114 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<style>
+    :root {
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --parchment-bg: #1c1813;
+      --card-bg: rgba(28, 24, 19, 0.92);
+      --border-ancient: #8b5a2b;
+    }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1a1a1a;
-  color: #f0e6d2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at center, #2a1f17 0%, #0d0a08 100%);
+      color: #e2d9c8;
+      min-height: 100vh;
+    }
 
-.game-container {
-  background-color: #2b2b2b;
-  border: 2px solid #8b5a2b;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 100%;
-  padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
+    h1, h2, .ancient-font {
+      font-family: 'Cinzel', serif;
+    }
 
-h1 {
-  color: #d4af37;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
+    /* Moldura estilo pergaminho antigo */
+    .ancient-border {
+      border: 3px solid var(--border-ancient);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(139, 90, 43, 0.3);
+      background: linear-gradient(135deg, rgba(38, 30, 22, 0.95) 0%, rgba(20, 16, 12, 0.98) 100%);
+    }
 
-.story-box {
-  background-color: #1e1e1e;
-  border-left: 4px solid #d4af37;
-  padding: 20px;
-  border-radius: 4px;
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* Animação suave para transições de nós */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
 
-.choices-box {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-button {
-  background-color: #8b5a2b;
-  color: #fff;
-  border: none;
-  padding: 14px 20px;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
+    /* Estilo dos Botões Interativos */
+    .btn-choice {
+      background: linear-gradient(180deg, #5c3a1d 0%, #3a220f 100%);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
 
-button:hover {
-  background-color: #a66d3b;
-  transform: translateY(-2px);
-}
+    .btn-choice:hover {
+      background: linear-gradient(180deg, #8b5a2b 0%, #5c3a1d 100%);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
+    }
 
-button:active {
-  transform: translateY(0);
-}
+    .btn-choice:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn-choice::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: 0.5s;
+    }
+
+    .btn-choice:hover::after {
+      left: 100%;
+    }
+
+    /* Indicador de Status */
+    .badge-status {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 sm:p-6 min-h-screen select-none">
+
+  <div class="max-w-2xl w-full ancient-border rounded-xl p-6 sm:p-8 relative my-auto">
+    
+    <!-- Cabeçalho com título e ícone -->
+    <div class="text-center mb-6">
+      <span class="badge-status text-xs uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
+        Expedição Arqueológica
+      </span>
+      <h1 class="text-2xl sm:text-4xl text-amber-400 font-bold mt-3 tracking-wide drop-shadow-md">
+        A Busca pela Cidade Perdida
+      </h1>
+      <div class="h-0.5 w-32 bg-amber-600/50 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Caixa da História / Texto -->
+    <div id="story-card" class="bg-black/40 border border-amber-900/40 rounded-lg p-5 sm:p-6 mb-6 fade-in min-h-[140px] flex items-center justify-center text-center">
+      <p id="story-text" class="text-base sm:text-lg leading-relaxed text-amber-100/90">
+        Carregando expedição...
+      </p>
+    </div>
+
+    <!-- Opções de Botões Interativos -->
+    <div id="choices-container" class="flex flex-col gap-3.5 fade-in">
+      <!-- Botões gerados via JS -->
+    </div>
+
+    <!-- Rodapé informativo -->
+    <div class="mt-8 text-center text-xs text-amber-700/80 font-mono">
+      <span>Diário de Bordo &bull; Escolha com sabedoria</span>
+    </div>
+  </div>
