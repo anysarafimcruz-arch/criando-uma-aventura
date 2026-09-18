@@ -1,43 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <title>Em busca da cidade perdida</title>
-</head>
-<body>
-    <main>
-        <div class="passo ativo" id="passo-0">
-            <img src="cenario-passo0.png" alt="">
-            <p>No porão da Estação da Luz, você analisa o diário. Para avançar na busca pela cidade perdida sob São Paulo, decida seu primeiro destino:</p>
-            <button class="btn-proximo" data-proximo="1">Investigar as catacumbas sob o Pátio do Colégio.</button>
-            <button class="btn-proximo" data-proximo="2">Explorar as galerias subterrâneas do Vale do Anhangabaú.</button>
-        </div>
-        <div class="passo" id="passo-1">
-            <p>O Desafio dos Rios Ocultos.Confrontando a geografia da cidade</p>
-            <button class="btn-proximo" data-proximo="3">Você descobre uma porta de ferro atrás das fundações. Ela leva a um túnel flooded pelo antigo Rio Tamanduateí. Para atravessar, você deve decifrar um enigma entalhado na pedra sobre o leito original do rio.</button>
-            <button class="btn-proximo" data-proximo="4">Você desce pelas galerias pluviométricas e encontra marcas nas paredes deixadas por bandeirantes no século XVII, indicando a entrada de uma caverna oculta sob o Viaduto do Chá.</button>
-        </div>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
   <meta charset="UTF-8">
-  <title>Em Busca da Cidade Perdida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Busca pela Cidade Perdida</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="jogo">
-    <h1 id="titulo"></h1>
-    <p id="texto"></p>
-    <div id="botoes"></div>
+  <div class="game-container">
+    <h1>A Busca pela Cidade Perdida</h1>
+    <div id="story-text" class="story-box"></div>
+    <div id="choices" class="choices-box"></div>
   </div>
 
   <script src="script.js"></script>
