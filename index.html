@@ -5,10 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Busca pela Cidade Perdida</title>
   
-  <!-- Fontes Google para estilo de aventura -->
+  <!-- Fontes Google para temática de aventura -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=MedievalSharp&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS para utilitários responsivos -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-container">
+    
+    <!-- Cabeçalho -->
+    <header class="header">
+      <span class="badge">Expedição Arqueológica</span>
+      <h1 class="title">A Busca pela Cidade Perdida</h1>
+      <div class="divider"></div>
+    </header>
+
+    <!-- Quadro da História -->
+    <main id="story-card" class="story-card">
+      <p id="story-text" class="story-text">
+        Carregando expedição...
+      </p>
+    </main>
+
+    <!-- Recipiente das Escolhas/Botões -->
+    <div id="choices-container" class="choices-container">
+      <!-- Os botões serão inseridos dinamicamente pelo JavaScript -->
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <span>Diário de Bordo &bull; Escolha com sabedoria</span>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript do Jogo -->
+  <script src="script.js"></script>
+</body>
+</html>
